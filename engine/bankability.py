@@ -307,25 +307,12 @@ class BankabilityEngine:
         # ===== ASSEMBLE COMPLETE OUTPUT =====
         
         return {
-            'scenario_results': bi_results,
             'BI_baseline': float(bi_results['baseline']['BI']),
             'BI_moderate': float(bi_results['moderate']['BI']),
             'BI_stress': float(bi_results['stress']['BI']),
             'BI_overall': float(bi_overall),
-            'overall_classification': classification,
-            'binding_scenario': binding_scenario,
-            'stress_dominance_explanation': stress_explanation,
-            'business_model_id': self.bm_id,
-            'business_model_name': self.bm_name,
-            'policy_dependence': self.policy_dependence,
-            'weights': {
-                'w1_ValueAdequacy': self.W1_VALUE_ADEQUACY,
-                'w2_CashFlowStability': self.W2_CASHFLOW_STABILITY,
-                'w3_DownsideRisk': self.W3_DOWNSIDE_RISK,
-                'w4_PolicyDependence': self.W4_POLICY_DEPENDENCE
-            },
-            'disclaimer': self.MANDATORY_DISCLAIMER,
-            'timestamp': datetime.utcnow().isoformat()
+            'classification': classification,
+            'stress_scenario_note': stress_explanation
         }
     
     # ========== PRIVATE HELPERS ==========

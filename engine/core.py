@@ -63,8 +63,9 @@ class Engine:
 
         self._validate_structure()
 
-        self.mc_engine = MonteCarloEngine(business_model)
-        self.bankability_engine = BankabilityEngine(business_model)
+        # LAYER B engines: MonteCarloEngine takes no args; BankabilityEngine requires config dict
+        self.mc_engine = MonteCarloEngine()
+        self.bankability_engine = BankabilityEngine(business_model.config)
 
     # ------------------------------------------------------------------
     # Validation
@@ -129,8 +130,10 @@ class Engine:
 
             deterministic = self._run_deterministic(scenario, params)
             monte_carlo = self.mc_engine.run(
-                scenario=scenario,
-                params=params,
+                business_model=self.business_model,
+                scenario_params=params,
+                stochastic_drivers=self.business_model.get_stochastic_drivers(),
+                scenario_name=scenario,
                 n_runs=n_runs,
             )
 
@@ -139,7 +142,7 @@ class Engine:
                 "monte_carlo": monte_carlo,
             }
 
-        bankability = self.bankability_engine.evaluate(results)
+        bankability = self.bankability_engine.compute(results)
 
         return {
             "results": results,

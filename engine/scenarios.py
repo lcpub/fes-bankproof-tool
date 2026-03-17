@@ -99,12 +99,12 @@ class ScenarioManager:
             Dict with deterministic results:
             {
                 'scenario': str,
-                'annual_cash_flows': np.ndarray, shape (duration,),
-                'cumulative_cash_flows': np.ndarray, shape (duration,),
+                'annual_cash_flows': List[float], shape (duration,),
+                'cumulative_cash_flows': List[float], shape (duration,),
                 'npv': float,
                 'discount_rate': float,
                 'irr': Optional[float],
-                'payback_years': Optional[int],
+                'payback_period': Optional[int],
                 'duration_years': int
             }
         
@@ -162,12 +162,12 @@ class ScenarioManager:
         
         return {
             'scenario': scenario,
-            'annual_cash_flows': annual_cf,
-            'cumulative_cash_flows': cumulative_cf,
+            'annual_cash_flows': annual_cf.tolist(),
+            'cumulative_cash_flows': cumulative_cf.tolist(),
             'npv': npv,
             'discount_rate': discount_rate,
             'irr': irr,
-            'payback_years': payback,
+            'payback_period': payback,
             'duration_years': duration
         }
     

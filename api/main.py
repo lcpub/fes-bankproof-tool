@@ -28,10 +28,19 @@ import logging
 from datetime import datetime
 
 # Import orchestration components
-from engine.business_models import create_business_model, ALLOWED_MODEL_IDS
+from engine.business_models import create_business_model, BUSINESS_MODELS
 from engine.scenarios import ScenarioManager
 from engine.montecarlo import MonteCarloEngine
 from engine.bankability import BankabilityEngine
+
+# ============================================================================
+# SUPPORTED MODELS
+# ============================================================================
+ALLOWED_MODEL_IDS = tuple(BUSINESS_MODELS.keys())
+"""
+Supported business model identifiers derived from BUSINESS_MODELS config.
+Models: AT (Austria), FR (France), DE (Germany), IT (Italy), SI (Slovenia)
+"""
 
 # ============================================================================
 # LOGGING SETUP
@@ -421,8 +430,9 @@ async def run_bankability_assessment(
             # Merge scenario_config + user_calibration
             scenario_params = {**SCENARIO_CONFIG[scenario], **user_calibration}
             
-            # Run deterministic analysis
-            det_result = scenario_manager.run_deterministic(scenario, scenario_params, business_model)
+            # Run deterministic analysis (correct argument order: business_model, scenario, parameters)
+            det_result = scenario_manager.run_deterministic(business_model, scenario, scenario_params)
+            
             results[scenario] = {'deterministic': det_result}
             logger.info(f"Deterministic analysis complete: {scenario}, NPV={det_result['npv']:.2f}")
         
@@ -498,7 +508,8 @@ async def run_bankability_assessment(
     No averaging, no normalization.
     """
     try:
-        bankability_engine = BankabilityEngine()
+        # BankabilityEngine requires business_model_config (not instance)
+        bankability_engine = BankabilityEngine(business_model.config)
         bankability_result = bankability_engine.compute(results)
         logger.info(f"Bankability assessment complete: BI_overall={bankability_result['BI_overall']:.3f}, "
                    f"classification={bankability_result['classification']}")
@@ -545,6 +556,7 @@ async def run_bankability_assessment(
     }
     
     # Build response (three scenario objects, NOT averaged)
+    # Note: payback_years was already mapped to payback_period above
     response = ApiResponse(
         baseline=ScenarioResult(
             deterministic=DeterministicResult(**results['baseline']['deterministic']),
