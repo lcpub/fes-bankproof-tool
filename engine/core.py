@@ -183,8 +183,22 @@ class Engine:
 
     def _assemble_parameters(self, scenario: str) -> Dict[str, Any]:
         """
-        Merge scenario defaults with global user calibration.
+        Merge parameters with precedence: user_calibration > scenario_config > business model defaults.
+        
+        Precedence:
+        1. Business model's default_parameters[scenario] (provides baseline values)
+        2. scenario_config[scenario] (user-provided scenario overrides)
+        3. user_calibration (applies globally across all scenarios)
         """
-        base = self.scenario_config.get(scenario, {}).copy()
+        # Start with model's built-in defaults
+        base = {}
+        if 'default_parameters' in self.business_model.config:
+            base = self.business_model.config['default_parameters'].get(scenario, {}).copy()
+        
+        # Override with scenario-specific config (if provided)
+        base.update(self.scenario_config.get(scenario, {}))
+        
+        # Override with global user calibration
         base.update(self.user_calibration)
+        
         return base

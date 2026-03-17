@@ -114,6 +114,39 @@ AT_AUSTRIA_CONFIG = {
             'min_multiplier': 0.80,
             'max_multiplier': 1.0
         }
+    },
+    
+    'default_parameters': {
+        'baseline': {
+            'biodiversity_payment_baseline': 200,
+            'carbon_credit_revenue_baseline': 80,
+            'premium_payment_baseline': 60,
+            'sustainable_forestry_management_baseline': 150,
+            'monitoring_verification_baseline': 50,
+            'administration_overhead_baseline': 40,
+            'discount_rate': 0.05,
+            'duration_years': 20
+        },
+        'moderate': {
+            'biodiversity_payment_baseline': 180,
+            'carbon_credit_revenue_baseline': 72,
+            'premium_payment_baseline': 54,
+            'sustainable_forestry_management_baseline': 158,
+            'monitoring_verification_baseline': 53,
+            'administration_overhead_baseline': 42,
+            'discount_rate': 0.07,
+            'duration_years': 20
+        },
+        'stress': {
+            'biodiversity_payment_baseline': 140,
+            'carbon_credit_revenue_baseline': 56,
+            'premium_payment_baseline': 42,
+            'sustainable_forestry_management_baseline': 173,
+            'monitoring_verification_baseline': 58,
+            'administration_overhead_baseline': 46,
+            'discount_rate': 0.09,
+            'duration_years': 20
+        }
     }
 }
 
@@ -231,6 +264,48 @@ FR_FRANCE_CONFIG = {
             'min_multiplier': 0.90,
             'max_multiplier': 1.15
         }
+    },
+    
+    'default_parameters': {
+        'baseline': {
+            'tourism_recreation_fee_baseline': 300,
+            'water_service_payment_baseline': 150,
+            'carbon_sequestration_revenue_baseline': 100,
+            'premium_eco_label_baseline': 80,
+            'sustainable_forestry_management_baseline': 200,
+            'trail_maintenance_baseline': 100,
+            'water_monitoring_baseline': 80,
+            'labour_staffing_baseline': 150,
+            'certification_marketing_baseline': 60,
+            'discount_rate': 0.05,
+            'duration_years': 20
+        },
+        'moderate': {
+            'tourism_recreation_fee_baseline': 270,
+            'water_service_payment_baseline': 135,
+            'carbon_sequestration_revenue_baseline': 90,
+            'premium_eco_label_baseline': 72,
+            'sustainable_forestry_management_baseline': 210,
+            'trail_maintenance_baseline': 105,
+            'water_monitoring_baseline': 84,
+            'labour_staffing_baseline': 158,
+            'certification_marketing_baseline': 63,
+            'discount_rate': 0.07,
+            'duration_years': 20
+        },
+        'stress': {
+            'tourism_recreation_fee_baseline': 210,
+            'water_service_payment_baseline': 105,
+            'carbon_sequestration_revenue_baseline': 70,
+            'premium_eco_label_baseline': 56,
+            'sustainable_forestry_management_baseline': 230,
+            'trail_maintenance_baseline': 115,
+            'water_monitoring_baseline': 92,
+            'labour_staffing_baseline': 173,
+            'certification_marketing_baseline': 69,
+            'discount_rate': 0.09,
+            'duration_years': 20
+        }
     }
 }
 
@@ -339,6 +414,45 @@ DE_GERMANY_CONFIG = {
             'description': 'Market recognition of cultural heritage value',
             'min_multiplier': 0.85,
             'max_multiplier': 1.15
+        }
+    },
+    
+    'default_parameters': {
+        'baseline': {
+            'burial_plot_sales_baseline': 500,
+            'perpetual_maintenance_fee_baseline': 200,
+            'cultural_visitor_revenue_baseline': 100,
+            'ecosystem_service_recognition_baseline': 50,
+            'forest_maintenance_tending_baseline': 150,
+            'burial_site_care_baseline': 200,
+            'regulatory_compliance_baseline': 80,
+            'administrative_staffing_baseline': 120,
+            'discount_rate': 0.05,
+            'duration_years': 50
+        },
+        'moderate': {
+            'burial_plot_sales_baseline': 450,
+            'perpetual_maintenance_fee_baseline': 180,
+            'cultural_visitor_revenue_baseline': 90,
+            'ecosystem_service_recognition_baseline': 45,
+            'forest_maintenance_tending_baseline': 158,
+            'burial_site_care_baseline': 210,
+            'regulatory_compliance_baseline': 84,
+            'administrative_staffing_baseline': 126,
+            'discount_rate': 0.07,
+            'duration_years': 50
+        },
+        'stress': {
+            'burial_plot_sales_baseline': 350,
+            'perpetual_maintenance_fee_baseline': 140,
+            'cultural_visitor_revenue_baseline': 70,
+            'ecosystem_service_recognition_baseline': 35,
+            'forest_maintenance_tending_baseline': 173,
+            'burial_site_care_baseline': 230,
+            'regulatory_compliance_baseline': 92,
+            'administrative_staffing_baseline': 138,
+            'discount_rate': 0.09,
+            'duration_years': 50
         }
     }
 }
@@ -478,6 +592,54 @@ IT_ITALY_CONFIG = {
             'min_multiplier': 0.70,
             'max_multiplier': 1.30
         }
+    },
+    
+    'default_parameters': {
+        'baseline': {
+            'timber_sales_baseline': 600,
+            'biomass_pellet_sales_baseline': 400,
+            'sawdust_byproduct_baseline': 200,
+            'carbon_credit_revenue_baseline': 100,
+            'agritourism_recreation_baseline': 150,
+            'harvesting_logging_baseline': 300,
+            'processing_chipping_baseline': 250,
+            'transport_logistics_baseline': 150,
+            'labour_operations_baseline': 200,
+            'equipment_maintenance_baseline': 100,
+            'forest_regeneration_baseline': 100,
+            'discount_rate': 0.05,
+            'duration_years': 20
+        },
+        'moderate': {
+            'timber_sales_baseline': 540,
+            'biomass_pellet_sales_baseline': 360,
+            'sawdust_byproduct_baseline': 180,
+            'carbon_credit_revenue_baseline': 90,
+            'agritourism_recreation_baseline': 135,
+            'harvesting_logging_baseline': 315,
+            'processing_chipping_baseline': 263,
+            'transport_logistics_baseline': 158,
+            'labour_operations_baseline': 210,
+            'equipment_maintenance_baseline': 105,
+            'forest_regeneration_baseline': 105,
+            'discount_rate': 0.07,
+            'duration_years': 20
+        },
+        'stress': {
+            'timber_sales_baseline': 420,
+            'biomass_pellet_sales_baseline': 280,
+            'sawdust_byproduct_baseline': 140,
+            'carbon_credit_revenue_baseline': 70,
+            'agritourism_recreation_baseline': 105,
+            'harvesting_logging_baseline': 345,
+            'processing_chipping_baseline': 288,
+            'transport_logistics_baseline': 173,
+            'labour_operations_baseline': 230,
+            'equipment_maintenance_baseline': 115,
+            'forest_regeneration_baseline': 115,
+            'discount_rate': 0.09,
+            'duration_years': 20
+        }
     }
 }
 
@@ -574,6 +736,42 @@ SI_SLOVENIA_CONFIG = {
             'min_multiplier': 0.70,
             'mode_multiplier': 1.0,
             'max_multiplier': 1.20
+        }
+    },
+    
+    'default_parameters': {
+        'baseline': {
+            'risk_reduction_payment_baseline': 300,
+            'insurance_contribution_baseline': 150,
+            'ecosystem_service_contract_baseline': 100,
+            'forest_restoration_baseline': 200,
+            'maintenance_monitoring_baseline': 150,
+            'engineering_works_baseline': 180,
+            'administration_coordination_baseline': 80,
+            'discount_rate': 0.05,
+            'duration_years': 25
+        },
+        'moderate': {
+            'risk_reduction_payment_baseline': 270,
+            'insurance_contribution_baseline': 135,
+            'ecosystem_service_contract_baseline': 90,
+            'forest_restoration_baseline': 210,
+            'maintenance_monitoring_baseline': 158,
+            'engineering_works_baseline': 189,
+            'administration_coordination_baseline': 84,
+            'discount_rate': 0.07,
+            'duration_years': 25
+        },
+        'stress': {
+            'risk_reduction_payment_baseline': 210,
+            'insurance_contribution_baseline': 105,
+            'ecosystem_service_contract_baseline': 70,
+            'forest_restoration_baseline': 230,
+            'maintenance_monitoring_baseline': 173,
+            'engineering_works_baseline': 207,
+            'administration_coordination_baseline': 92,
+            'discount_rate': 0.09,
+            'duration_years': 25
         }
     }
 }
